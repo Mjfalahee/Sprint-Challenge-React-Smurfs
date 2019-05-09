@@ -44,27 +44,27 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  setActive = target => {
-    console.log(target);
-    this.setState({currentsmurf: target});
-  }
+  // setActive = target => {
+  //   console.log(target);
+  //   this.setState({currentsmurf: target});
+  // }
 
-  updateSmurf(smurf) {
-    axios
-      .put(`http://localhost:3333/smurfs/${this.state.currentsmurf}`, smurf)
-      .then(res => {
-        console.log(res.data);
-        this.setState({smurfs: res.data}, {currentsmurf: {}});
-      })
-      .catch(err => console.log(err))
-  }
+  // updateSmurf(smurf) {
+  //   axios
+  //     .put(`http://localhost:3333/smurfs/${this.state.currentsmurf}`, smurf)
+  //     .then(res => {
+  //       console.log(res.data);
+  //       this.setState({smurfs: res.data}, {currentsmurf: {}});
+  //     })
+  //     .catch(err => console.log(err))
+  // }
 
-  getActive = () => {
-    axios
-      .get(`http://localhost:3333/smurfs/${this.state.currentsmurf}`)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-  }
+  // getActive = () => {
+  //   axios
+  //     .get(`http://localhost:3333/smurfs/${this.state.currentsmurf}`)
+  //     .then(res => console.log(res.data))
+  //     .catch(err => console.log(err))
+  // }
 
   render() {
     return (
@@ -86,6 +86,4 @@ class App extends Component {
   }
 }
 
-{/* <SmurfForm newSmurf={this.newSmurf} />
-        <Smurfs smurfs={this.state.smurfs} /> */}
 export default App;
