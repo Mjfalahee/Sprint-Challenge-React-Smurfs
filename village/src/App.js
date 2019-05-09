@@ -24,11 +24,22 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  newSmurf() {
+  checkSmurfs() {
+    axios 
+      .get("http://localhost:3333/smurfs")
+      .then(res => this.setState({smurfs: res.data}))
+      .catch(err => console.log(err))
+      return this.state.smurfs;
+  }
+
+  deleteSmurf(smurf) {
     axios
-    .get("http://localhost:3333/smurfs")
-    .then(res => this.setState({smurfs: res.data}))
-    .catch(err => console.log(err))
+      .delete(`http://localhost:3333/smurfs/${smurf}`)
+      .then(res => {
+        console.log(res.data)
+        this.setState({smurfs: res.data})
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -36,9 +47,12 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Route exact path="/"
-        render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+        render={props => <Smurfs {...props} 
+        smurfs={this.checkSmurfs()}
+        deleteSmurf={this.deleteSmurf}
+         />} />
         <Route path="/smurf-form"
-        render={props => <SmurfForm {...props} newSmurf={this.newSmurf} />} />
+        render={props => <SmurfForm {...props} />} />
       </div>
     );
   }

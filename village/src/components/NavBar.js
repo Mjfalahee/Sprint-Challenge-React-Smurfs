@@ -8,7 +8,7 @@ function NavBar() {
         <div>
             <ul className="nav">
                 <li>
-                    <Link to="/"> Smurfs </Link>
+                    <Link to="/">Smurfs</Link>
                 </li>
                 <li>
                     <Link to="/smurf-form">Add Smurf</Link>

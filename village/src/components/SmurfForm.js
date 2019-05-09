@@ -19,7 +19,6 @@ class SmurfForm extends Component {
       .post("http://localhost:3333/smurfs", this.state)
       .then(res => console.log(res.data))
       .catch(err => console.log(err))
-
     this.setState({
       name: '',
       age: '',
@@ -28,7 +27,7 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
-    this.setState( { [e.target.name]: e.target.value });
+    this.setState({[e.target.name]: e.target.value});
   };
 
   render() {
